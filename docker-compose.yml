@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    container_name: "fastapi"
+    ports:
+      - "8000:8000"
+    command: bash -c "uvicorn main:app --reload --host 0.0.0.0"
+    depends_on:
+      - postgresql
+    restart: unless-stopped
+  
+  fron:
+    build: 
+      context: "./puppy/"
+      dockerfile: Dockerfile
+    container_name: "react"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: unless-stopped
+    
+
+  postgresql:
+    image: postgres
+    container_name: "postgres"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+
+
+volumes:
+  postgresql:
+    driver: local

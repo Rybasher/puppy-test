@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.menu {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.appointment__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.appointment__card:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.appointment__card--title {
+  display: flex;
+  flex-grow: 1;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.element:first-child > * {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.openUpdate {
+  margin-left: 20% ;
+}
+
+.sign {
+  margin-right: 45px;
+}
+
+.buttons__container {
+  display: flex;
+  margin-left: 10%;
+}
+
+.buttons__container > button:not(:last-child),
+.order__item  > *{
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+
+.order__container > div {
+  margin-bottom: 10px;
+}
